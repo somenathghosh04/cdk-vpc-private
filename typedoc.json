@@ -1,0 +1,13 @@
+{
+  "entryPoints": ["lib"],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "theme": "default",
+  "plugin": ["typedoc-plugin-markdown"],
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "readme": "README.md",
+  "name": "AWS CDK VPC with Private EC2 Instance",
+  "includeVersion": true
+} 

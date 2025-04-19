@@ -3,10 +3,32 @@ import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
+/**
+ * Properties for the VPC Private Stack
+ */
+export interface VpcPrivateStackProps extends cdk.StackProps {
+  // Add any additional properties here
+}
+
+/**
+ * A stack that creates a VPC with private isolated subnets
+ * 
+ * This stack creates a VPC with the following configuration:
+ * - One availability zone
+ * - Private isolated subnets
+ * - No NAT Gateway (since subnets are isolated)
+ */
 export class VpcPrivateStack extends cdk.Stack {
+  /** The VPC created by this stack */
   public readonly vpc: ec2.Vpc;
 
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  /**
+   * Creates a new VPC Private Stack
+   * @param scope The parent construct
+   * @param id The unique identifier for this stack
+   * @param props Optional properties for this stack
+   */
+  constructor(scope: Construct, id: string, props?: VpcPrivateStackProps) {
     super(scope, id, props);
 
     // Create VPC with a private subnet
